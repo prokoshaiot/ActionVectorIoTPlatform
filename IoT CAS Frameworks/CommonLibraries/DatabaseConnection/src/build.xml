@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="DatabaseConnection" default="deploy" basedir="..">
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="class.dir" value="${basedir}/build/classes"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="del.dir" value="${basedir}/dist/DatabaseConnection.jar"/>
+    <echo>Base Directory is ---->   ${basedir}</echo>
+
+    <target name="deploy" depends="clean,compile,create">
+        <echo>Projects Starts Here....</echo>
+    </target>
+    
+    <target name="clean">
+        
+        <delete file="${del.dir}" />
+    </target>
+    
+    
+    <target name="compile">
+        <echo>Compiling the projects</echo>
+        <javac srcdir="${src.dir}" destdir="${class.dir}" includeantruntime="false">
+            <classpath refid="build.class.path" />
+        </javac>
+    </target>
+    
+    <path id="build.class.path">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+        
+        
+    <target name="create">
+        <jar jarfile="${basedir}/dist/DatabaseConnection.jar" basedir="${class.dir}">
+        </jar>
+
+    </target>
+   
+    
+</project>

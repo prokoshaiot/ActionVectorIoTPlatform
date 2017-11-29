@@ -1,0 +1,53 @@
+#The server (hostname or ip address) on which CEP engine runs
+#No default
+CEP.engine-host=localhost
+
+#The CEP engine port number
+#Default is 7102
+CEP.engine-port=7102
+
+#CEP engine protocol requires a record seperator.
+#Default is "\n"
+CEP.line-separator=\n
+
+# How long to sleep between each logwatch XML file collection.
+# Value in seconds. 0 means no sleep.
+# Default is 60 seconds
+logwatch.download-sleep=120
+
+#CEP engine host address.
+#No default value.
+#logwatch-host=119.252.144.175
+logwatch-host=192.168.1.201
+#logwatch-host=localhost
+
+#The XML mapping of logwatch XML metrics to CEP event.
+#No default file name.
+logwatch.cep-event-mapper=config/eventmapper.xml
+
+#logwatch adapter main loop control of the main processing logic.
+#Supported values are:
+#  logwatch-LOG-CEP   -- download logwatch XML, log the logwatch CEP event, send to CEP
+#  logwatch-CEP  -- download logwatch XML, send to CEP
+# Default is logwatch-CEP
+adapter.loop-control=LOGWATCH-CEP-LOG
+
+#No of times the adapter should retry downloading the logwatch XML on failure.
+#Default is 0 (no retries)
+logwatch.retry-count=2
+
+#Size (in KB) of buffer to allocate (internal heap memory) to hold a downloaded logwatch XML document.
+#Change this size only if you know how large the XML files will be since too large a size
+#will cause memory to be held up needlessly and too small will cause overheads due to realloc
+#of heap space dynamically.
+#Default is 10KB
+logwatch.xml-buffer-size=40
+
+
+serviceClass=MONEY
+module=MONEY1
+#averaging window size in mintues for the API
+avgWindow=2
+ServiceMappingURL=jdbc:postgresql://192.168.1.46/incidentdb
+ServiceMappingUN=postgres
+ServiceMappingPwd=password

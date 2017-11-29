@@ -1,0 +1,8 @@
+Step 1: Add an entry merit.actionvector.com	127.0.0.1
+	in /etc/hosts of the server where docker is installed.
+Step 2: Untar avsa_docker.tar
+Step 3: cd to the directory avsa_docker
+Step 4: sh docker_cmd.sh
+Step 5: Wait for 10-15 mins for the application to collect metrics.
+Step 6: Browse for merit.actionvector.com:8088/SA-DashBoard
+Step 7: Select period Hour/Day and click on Desktop/Server, you can see the various charts.

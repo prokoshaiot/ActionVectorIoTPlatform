@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SA-DeskAdminTool" default="deploy" basedir="..">
+    
+    <property name="war.fileName" value="SA-DeskAdminTool.war" />
+    <property name="src.dir" value="${basedir}/src" />
+    <property name="lib.dir" value="${basedir}/lib" />
+    <property name="class.dir" value="${basedir}/build/web/WEB-INF/classes" />
+    <property name="war.destination.dir" value="${basedir}/dist" />
+    <property name="war.deploy.dir" value="/home/mani/Desktop/AVSA/apache-tomcat-7.0.34/webapps" />
+
+    <tstamp prefix="build-info">
+        <format property="current-date" pattern="d-MMMM-yyyy" locale="en" />
+        <format property="current-time" pattern="hh:mm:ss a z" locale="en" />
+    </tstamp>
+    
+    <target name="deploy" depends="clean,compile,create,deploywar">
+       
+    </target>
+
+    <path id="build.class.path">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <echo>Deleting current ${war.deploy.dir}/${war.fileName} files</echo>
+        <delete file="${war.destination.dir}/${war.fileName}" />
+        <delete file="${war.deploy.dir}/${war.fileName}" />
+    </target>
+
+    
+    <target name="compile">
+        <echo>Compiling the projects</echo>
+        <javac srcdir="${src.dir}" destdir="${class.dir}" includeantruntime="false">
+            <classpath refid="build.class.path" />
+        </javac>
+    </target>
+
+    <target name="create">
+        <echo>Creating ${war.destination.dir}/${war.fileName} file</echo>
+        <echo>Deployment Discriptor Path ${basedir}/web/WEB-INF/web.xml"</echo>
+        <war destfile="${war.destination.dir}/${war.fileName}" webxml="${basedir}/web/WEB-INF/web.xml" update="true">
+            <classes dir="${class.dir}" />
+            <lib dir="${lib.dir}" />
+            <fileset dir="${basedir}/web">
+                <exclude name="**/*.jar"/>
+            </fileset>
+            <manifest>
+                <attribute name="Built-On" value="${build-info.current-date}" />
+                <attribute name="Built-At" value="${build-info.current-time}" />
+            </manifest>
+        </war>
+    </target>
+     <target name="deploywar">
+        <copy file="${war.destination.dir}/${war.fileName}" todir="${war.deploy.dir}"/>
+    </target>
+</project>

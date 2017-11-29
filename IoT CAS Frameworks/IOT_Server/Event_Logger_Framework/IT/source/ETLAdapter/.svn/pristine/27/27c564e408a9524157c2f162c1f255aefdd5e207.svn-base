@@ -1,0 +1,50 @@
+///////////////////////////////////////////////////////////////////
+    Sample DtatOutPut Format in Mongo DB
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+{
+    "_id": ObjectId("4efa8d2b7d284dad101e4bc7"),
+    "Last Name": "PELLERIN",
+    "First Name": "Franck",
+    "Date of Birth": "09-19-1983",
+    "phoneNumber": [
+        {
+            "type": "home",
+            "number": "212 555-1234"
+        },
+        {
+            "type": "fax",
+            "number": "646 555-4567",
+            "verified":  false
+        }
+    ],
+    "Address": {
+        "Street": "1 chemin des Loges",
+        "City": "VERSAILLES"
+    },
+    "Months at Present Address":  37
+}
+
+///////////////////////////////////////////////////////////////////
+    Sample Insertion statement in Mongo DB
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+String json = "{'database' : 'mkyongDB','table' : 'hosting'," +
+"'detail' : {'records' : 99, 'index' : 'vps_index1', 'active' : 'true'}}}";
+DBObject dbObject = (DBObject)JSON.parse(json);
+collection.insert(dbObject);
+
+///////////////////////////////////////////////////////////////////
+    Sample Insertion statement in Mongo DB
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+String json = "{'database' : 'mkyongDB','table' : 'hosting'," +
+"'detail' : [
+             {'records' : 91, 'index' : 'vps_index1', 'active' : 'true'},
+             {'records' : 92, 'index' : 'vps_index1', 'active' : 'true'},
+             {'records' : 93, 'index' : 'vps_index1', 'active' : 'true'},
+             {'records' : 94, 'index' : 'vps_index1', 'active' : 'true'}
+            ]
+ }}";
+DBObject dbObject = (DBObject)JSON.parse(json);
+collection.insert(dbObject);
+

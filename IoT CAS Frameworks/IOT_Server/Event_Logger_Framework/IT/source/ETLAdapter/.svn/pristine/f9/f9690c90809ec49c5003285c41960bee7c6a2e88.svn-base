@@ -1,0 +1,30 @@
+# This file has the mapping of OpsView performance data records to the
+# msg classes that parses the data record.
+# The format of each property below is as follows:
+# msgId="msgClass, msgDest1, msgDest2, msgDestN...
+# where,
+#   msgId -- the identifier token for the performance data record type
+#   msgClass -- the full class name of the msg class that parses this record type
+#   msgDestN -- a comma seperated list of receipients that should receive this msg.
+#               Currently, the only supported recepients are:
+#                   CEP for CEPEngine and
+#                   RPT for reporting database.
+#
+106=com.prokosha.adapter.etl.message.OVSwapMsg
+301=com.prokosha.adapter.etl.message.OVProcessMsg
+110=com.prokosha.adapter.etl.message.OVMemoryMsg
+151=com.prokosha.adapter.etl.message.OVMemcacheMsg
+152=com.prokosha.adapter.etl.message.OVMemcacheMsg
+153=com.prokosha.adapter.etl.message.OVMemcacheMsg
+225=com.prokosha.adapter.etl.message.OVMemcacheMsg
+226=com.prokosha.adapter.etl.message.OVMemcacheMsg
+227=com.prokosha.adapter.etl.message.OVMemcacheMsg
+108=com.prokosha.adapter.etl.message.OVLoadAvgMsg
+304=com.prokosha.adapter.etl.message.OVHttpMsg
+100=com.prokosha.adapter.etl.message.OVDiskMsg
+101=com.prokosha.adapter.etl.message.OVDiskMsg
+102=com.prokosha.adapter.etl.message.OVDiskMsg
+103=com.prokosha.adapter.etl.message.OVDiskMsg
+114=com.prokosha.adapter.etl.message.OVDiskMsg
+
+

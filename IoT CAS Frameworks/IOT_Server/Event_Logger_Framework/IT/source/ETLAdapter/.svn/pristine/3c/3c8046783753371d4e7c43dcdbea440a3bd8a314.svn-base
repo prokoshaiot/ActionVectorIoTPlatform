@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<StatusDetails>
+    <ServiceClass class="MONEY">
+        <BUCKET starttime="2011-06-30 08:30:00" endtime="2011-06-30 08:32:00">
+            <BUCKET_DET id="1" IP="119.252.144.175" STATUS="404" HITS="6606" LATENCY="50" />
+        </BUCKET>
+        <BUCKET starttime="2011-06-30 08:32:00" endtime="2011-06-30 08:34:00">
+           <BUCKET_DET id="1" IP="119.252.144.175" STATUS="408" HITS="6606" LATENCY="50" />
+        </BUCKET>
+        <BUCKET starttime="2011-06-30 08:34:00" endtime="2011-06-30 08:36:00">
+           <BUCKET_DET id="1" IP="119.252.144.175" STATUS="201" HITS="6606" LATENCY="50" />
+        </BUCKET>
+        <BUCKET starttime="2011-06-30 08:36:00" endtime="2011-06-30 08:38:00">
+           <BUCKET_DET id="1" IP="119.252.144.175" STATUS="200" HITS="6606" LATENCY="50" />
+        </BUCKET>
+        <BUCKET starttime="2011-06-30 08:38:00" endtime="2011-06-30 08:40:00">
+           <BUCKET_DET id="1" IP="119.252.144.175" STATUS="500" HITS="6606" LATENCY="50" />
+        </BUCKET>
+        
+    </ServiceClass>
+</StatusDetails>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HTTPEventDispatcher" default="deploy" basedir="..">
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="class.dir" value="${basedir}/build/classes"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="del.dir" value="${basedir}/dist/HTTPEventDispatcher.jar"/>
+
+    <target name="deploy" depends="clean,compile,create">
+        <echo>HTTPEventDispatcher Project Starts Here...</echo>
+    </target>
+    
+    <target name="clean">
+        <echo>Cleaning the HTTPEventDispatcher project...</echo>
+        <delete file="${del.dir}" />
+    </target>
+    
+    <target name="compile">
+        <echo>Compiling the HTTPEventDispatcher project...</echo>
+        <mkdir dir="${class.dir}"></mkdir>
+        <javac srcdir="${src.dir}" destdir="${class.dir}" includeantruntime="false">
+            <classpath refid="build.class.path" />
+        </javac>
+        
+    </target>
+    
+    <path id="build.class.path">
+        <fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+        
+    <target name="create">
+        <echo>Creating the HTTPEventDispatcher jar...</echo>
+        <jar jarfile="${basedir}/dist/HTTPEventDispatcher.jar" basedir="${class.dir}">
+        </jar>
+    </target>
+</project>

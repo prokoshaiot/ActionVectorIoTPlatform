@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : eventmapper.xml
+    Created on : March 1, 2011, 5:18 PM
+    Author     : Abraham
+    Description:
+        This XML file has two purposes:
+        1. To map the fields of the Ganglia XML into CEP events. This is the
+           EventMapper section of this file.
+        2. To define what events are to be generated for the various servers
+           monitored by Ganglia. This is the HostEvents section of this file.
+
+        EventDefinition section::
+        The Ganglia XML fields are mapped to CEP event fields. Some Ganglia XML
+        fields may be entirely dropped (not reported in any CEP event). Some
+        Ganglia XML fields may be reported in multiple CEP events.
+        It is IMPORTANT to note that the CEP events and field names specified in
+        this section map correctly to the CEP engines "EventSchema.xml" definitions.
+
+            Each <event> node specifies the schema of a CEP event mapped into the Ganglia XML
+            Mapping of <event> nodes in this file to the CEP event schema is as follows:
+             evName - CEP event name - <event-type> name attrib in CEP event schema
+             evField - CEP event attibute name - <map-property> name attrib in CEP event schema
+             evType - CEP event attribute data type - <map-property> class attrib in CEP event schema
+             gName is the Ganglia attribute of gNode node, that maps to evField
+             gVal is the Ganglia attribute of gNode node, that gives the value the evField
+
+        HostEvents section::
+        The purpose of this section is to identify the set of events to report for
+        each server/host. The options are to specify report ALL events for the specified
+        host. Optionally, you may list the CEP events to be generated for each host.
+
+  IMPORTANT NOTE::: Currently the only data type values supported are "string", "double", "float" and "int"
+        If the evType attribute in the <Parameter> nodes below include any other type,
+        please add appropriate validation for the same type in GangliaEvent.java class
+        in the setDefaultIfNull() method
+-->
+
+<GangliaEventMapper>
+    <EventDefinition>
+        <CepEvent evName="ServerStateEvent" containerNode="HOST">
+            <Parameter evField="HostName" gNode="HOST" gName="NAME" gVal="NAME" evType="string"></Parameter>
+            <Parameter evField="HostAddress" gNode="HOST" gName="IP" gVal="IP" evType="string"></Parameter>
+            <Parameter evField="TimeStamp" gNode="HOST" gName="REPORTED" gVal="REPORTED" evType="int"></Parameter>
+            <Parameter evField="OSName" gNode="METRIC" gName="os_name" gVal="VAL" evType="string"></Parameter>
+            <Parameter evField="OSRelease" gNode="METRIC" gName="os_release" gVal="VAL" evType="string"></Parameter>
+            <Parameter evField="MachineType" gNode="METRIC" gName="machine_type" gVal="VAL" evType="string"></Parameter>
+            <Parameter evField="BootTime" gNode="METRIC" gName="boottime" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="CpuNum" gNode="METRIC" gName="cpu_num" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="CpuSpeed" gNode="METRIC" gName="cpu_speed" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="CpuIdle" gNode="METRIC" gName="cpu_idle" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuAidle" gNode="METRIC" gName="cpu_aidle" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuNice" gNode="METRIC" gName="cpu_nice" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuUser" gNode="METRIC" gName="cpu_user" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuSystem" gNode="METRIC" gName="cpu_system" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuWio" gNode="METRIC" gName="cpu_wio" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="Load1" gNode="METRIC" gName="load_one" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="Load5" gNode="METRIC" gName="load_five" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="Load15" gNode="METRIC" gName="load_fifteen" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="ProcTotal" gNode="METRIC" gName="proc_total" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="ProcRun" gNode="METRIC" gName="proc_run" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="DiskTotal" gNode="METRIC" gName="disk_total" gVal="VAL" evType="double"></Parameter>
+            <Parameter evField="DiskFree" gNode="METRIC" gName="disk_free" gVal="VAL" evType="double"></Parameter>
+            <Parameter evField="PartitionMaxUsed" gNode="METRIC" gName="part_max_used" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="SwapTotal" gNode="METRIC" gName="swap_total" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="SwapFree" gNode="METRIC" gName="swap_free" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="MemTotal" gNode="METRIC" gName="mem_total" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="MemShared" gNode="METRIC" gName="mem_shared" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="MemCached" gNode="METRIC" gName="mem_cached" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="MemFree" gNode="METRIC" gName="mem_free" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="MemBuffers" gNode="METRIC" gName="mem_buffers" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="PacketsIn" gNode="METRIC" gName="pkts_in" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="PacketsOut" gNode="METRIC" gName="pkts_out" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="BytesIn" gNode="METRIC" gName="bytes_in" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="BytesOut" gNode="METRIC" gName="bytes_out" gVal="VAL" evType="float"></Parameter>
+        </CepEvent>
+        <CepEvent evName="ServerLoadEvent" containerNode="HOST">
+            <Parameter evField="HostName" gNode="HOST" gName="NAME" gVal="NAME" evType="string"></Parameter>
+            <Parameter evField="HostAddress" gNode="HOST" gName="IP" gVal="IP" evType="string"></Parameter>
+            <Parameter evField="TimeStamp" gNode="HOST" gName="REPORTED" gVal="REPORTED" evType="int"></Parameter>
+            <Parameter evField="Load1" gNode="METRIC" gName="load_one" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="Load5" gNode="METRIC" gName="load_five" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="Load15" gNode="METRIC" gName="load_fifteen" gVal="VAL" evType="float"></Parameter>
+        </CepEvent>
+        <CepEvent evName="ServerNetworkStatsEvent" containerNode="HOST">
+            <Parameter evField="HostName" gNode="HOST" gName="NAME" gVal="NAME" evType="string"></Parameter>
+            <Parameter evField="HostAddress" gNode="HOST" gName="IP" gVal="IP" evType="string"></Parameter>
+            <Parameter evField="TimeStamp" gNode="HOST" gName="REPORTED" gVal="REPORTED" evType="int"></Parameter>
+            <Parameter evField="PacketsIn" gNode="METRIC" gName="pkts_in" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="PacketsOut" gNode="METRIC" gName="pkts_out" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="BytesIn" gNode="METRIC" gName="bytes_in" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="BytesOut" gNode="METRIC" gName="bytes_out" gVal="VAL" evType="float"></Parameter>
+        </CepEvent>
+        <CepEvent evName="ServerCpuStatsEvent" containerNode="HOST">
+            <Parameter evField="HostName" gNode="HOST" gName="NAME" gVal="NAME" evType="string"></Parameter>
+            <Parameter evField="HostAddress" gNode="HOST" gName="IP" gVal="IP" evType="string"></Parameter>
+            <Parameter evField="TimeStamp" gNode="HOST" gName="REPORTED" gVal="REPORTED" evType="int"></Parameter>
+            <Parameter evField="CpuNum" gNode="METRIC" gName="cpu_num" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="CpuSpeed" gNode="METRIC" gName="cpu_speed" gVal="VAL" evType="int"></Parameter>
+            <Parameter evField="CpuIdle" gNode="METRIC" gName="cpu_idle" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuAidle" gNode="METRIC" gName="cpu_aidle" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuNice" gNode="METRIC" gName="cpu_nice" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuUser" gNode="METRIC" gName="cpu_user" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuSystem" gNode="METRIC" gName="cpu_system" gVal="VAL" evType="float"></Parameter>
+            <Parameter evField="CpuWio" gNode="METRIC" gName="cpu_wio" gVal="VAL" evType="float"></Parameter>
+        </CepEvent>
+    </EventDefinition>
+
+    <HostEventsMapping>
+        <HostEvent evName="ServerStateEvent" forServer="*"></HostEvent>
+    </HostEventsMapping>
+
+</GangliaEventMapper>

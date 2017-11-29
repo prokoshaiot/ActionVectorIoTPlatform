@@ -1,0 +1,31 @@
+#Common values for both local and production server
+DriverName=org.postgresql.Driver
+UrlPath=jdbc:postgresql://192.168.1.201/report1
+UserID=postgres
+Password=postgres
+HostStateDetailsFilePath=ETLConfig/rekha/HostStateDetails.log
+HostStateReportFilePath=ETLConfig/rekha/HostStateReport.log
+
+#Choose either local or production server (write "local" or "production")
+SERVER=production
+
+#Enable following 3 values for local server....
+LocalPerfReportPath=config/rekha/perfdataRT.log
+LocalXmlFilePath=config/rekha/gmond0.xml
+LocalServiceEventDataPath=config/rekha/eventPipe.log
+LocalHealthXmlFilePath=config/rekha/health.xml
+LocalLogWatchXmlFilePath=config/rekha/logwatch.xml
+LocalHealthUrlPath=http://119.252.148.168:8085/healthMonitor/getHealth.php?ForLast=2&serviceclass=MAIL_SEARCH
+
+
+#Enable following 6 values for production server...
+ProdPerfReportFilePath=config/rekha/perfdataRT.log
+ProdPerfPipeFilePath=/home/vijayasri/Desktop/27July/perfpipe.fifo
+ProdEventPipePath=/home/vijayasri/Desktop/27July/eventpipe.fifo
+#CEP engine host address.
+#No default value.
+GangliaGmondHostName=192.168.1.61
+#port at which gmond daemon listens.
+#Default is 8650.
+GangliaGmondPortNo=8649
+GangliaXmlFilePath=config/rekha/gmond.xml

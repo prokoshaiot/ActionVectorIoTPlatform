@@ -1,7 +1,7 @@
-Demo of IT Infrastructure monitoring and analytics solution built on ActionVector IoT Platform. The data collector 
-collects CPU, disk and memory metrics on the machine where you execute and publishes the events to the server. The event
-stream is procssed by CEP Engine and cpatured in event repository. The Analytics framework generates various multi-dimensional
-performance charts that can be viewed in the dashbaord application. 
+Demo of IT Infrastructure monitoring and analytics solution built on ActionVector IoT Platform. 
+The data collector collects CPU, disk and memory metrics on the machine where you execute and publishes the events to the server. 
+The event stream is processed by CEP Engine and cpatured in event repository. 
+The Analytics framework generates various multi-dimensional performance charts that can be viewed in the dashbaord application. 
 
 You can see the source code for this referece implementation in the source code repository.
 
@@ -16,10 +16,10 @@ Step 5: Wait for 10-15 mins for the application to collect metrics.
 Step 6: Browse for merit.actionvector.com:8090/SA-DashBoard
 Step 7: Select period Hour/Day and click on Desktop/Server, you can see the various charts.
 
-Demo of Solar plant monitoring and analytics solutions is built on ActionVector IoT platform. This demo collects various
-metrics from Solar inverter simulators running on a  separate machine in your setup and publishes the events to the server
-that are procsses and CEP and captured in event repository. The Analytics framework generates various multi-dimensional
-performance charts that can be viewed in the dashbaord application.
+Demo of Solar plant monitoring and analytics solutions is built on ActionVector IoT platform. 
+This demo collects various metrics from Solar inverter simulators running on a  separate machine and publishes the events.
+The event stream is processed by the server and CEP and captured in event repository. 
+The Analytics framework generates various multi-dimensional performance charts that can be viewed in the dashbaord application.
 
 You can see the source code for this referece implementation in the source code repository.
 
